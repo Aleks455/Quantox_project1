@@ -1,0 +1,31 @@
+.admin_form {
+    border: 1px solid black;
+    text-align: center;
+    width: 20rem;
+    color:rgb(239, 238, 238);
+    background-color: rgba(52, 52, 52, 0.89);
+    border-radius: 10px;
+    margin: auto;
+}
+input {
+    margin: 10px;
+    width: 12rem;
+    padding: 7px;
+    border-radius: 5px;
+}
+h4 {
+    margin: 20px;
+}
+#submit_admin {
+    color: rgba(52, 52, 52, 0.89);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    background-color:rgb(239, 238, 238);
+}
+.notice {
+    color: red;
+    font-style: italic;
+}
+
+

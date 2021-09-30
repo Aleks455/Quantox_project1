@@ -1,0 +1,18 @@
+
+.footer_container {
+    width: 100%;
+    height: 7rem;
+    background-color:   rgb(211, 211, 211);
+    color:rgb(59, 24, 24);
+    bottom: 0;
+    overflow: auto;
+
+}
+.copyrights {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+    text-align: center;
+    font-size: 0.8rem;
+
+}

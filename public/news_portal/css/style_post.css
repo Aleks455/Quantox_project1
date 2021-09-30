@@ -1,0 +1,8 @@
+.detailed_post {
+    /* border: 1px solid red; */
+    width: 90%;
+    margin: auto;
+}
+.detailed_post div {
+    padding: 1rem;
+}

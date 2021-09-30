@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.main_post_container {
+    /* border: 1px solid pink; */
+    text-align: center;
+    margin: auto;
+    padding: 1em;
+}
+a {
+    text-decoration: none;
+    color:rgb(61, 168, 201);
+}
+a:hover {
+    color: rgb(26, 131, 163);
+}
+ul {
+    list-style-type: none;
+}
+.navigation_div {
+    padding: 1.3rem;
+    font-size: 1.2rem;
+    background-color: rgb(211, 211, 211);
+    display: grid;
+    /* grid-template-columns: 6fr 1fr; */
+    justify-items: start;
+    align-items: baseline;
+}
+.newsportal_name {
+    margin: auto;
+}
+.news_categories_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    justify-items: center;
+    gap: 15rem;
+}
+.news_categories {
+    display: grid;
+    grid-template-columns: repeat(3,6rem);
+    justify-items: center;
+    margin: auto;
+}
+
+/* dropdown form */
+/* 
+.subscribe_dropdown {
+    /* display: block; */
+    /* position: absolute; */
+    /* top: 50px;
+    width: 200px;
+    height: 300px;
+    color: white; */
+/* } */ 
+
+.dropdown_form {
+    width: 40%;
+    padding: 0.1rem;
+    margin: 2rem auto;
+    background-color:rgb(62, 156, 185);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    color:white;
+    font-size: 1.4rem;
+}
+
+.dropdown_form label, .dropdown_form input {
+    margin: 0.3rem;
+}
+.dropdown_form h3 {
+    padding: 0.2rem;
+    text-align: center;
+}
+.dropdown_button {
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    border: 2px solid rgb(61, 168, 201);
+    background-color:rgb(62, 156, 185);
+    border-radius: 10px;
+}
+.dropdown_button a {
+    color: white;
+}
+.dropdown_button a:hover {
+    background-color:rgb(98, 153, 170);
+    color: rgb(216, 239, 245);
+}
+
+.submit_subscription {
+    color: rgb(62, 156, 185);
+    font-size: 1rem;
+    padding: 0.3rem;
+    border: 2px solid rgb(61, 168, 201);
+    background-color:white;
+    border-radius: 10px;
+}
+label {
+    font-size: 0.8rem;
+}
+form {
+    padding: 2em;
+    color:white;
+}
+.notice {
+    color: red;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+}
+
+
+
+
+
+
