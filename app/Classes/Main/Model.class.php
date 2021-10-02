@@ -29,7 +29,7 @@ class Model extends Dbh
         $stmt = $this->connect()->prepare($sql);
         if($data){
             $stmt->execute($data);  
-        } else{
+        } else {
             $stmt->execute();  
         }
     }

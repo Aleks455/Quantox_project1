@@ -18,6 +18,7 @@ class PostsModel extends Model
         //don't know where I found this
         //return $request->execute() ? $request->fetchAll() : false; 
     }
+    
     // protected function getPost($post_id) 
     // {
     //     $query = "SELECT * from posts WHERE post_id = ?";
@@ -36,50 +37,22 @@ class PostsModel extends Model
 
     protected function setPost($post_title,$post_img, $post_preview, $post_content, $post_category, $post_author, $post_date)
     {
-        // $post_title = real_escape_string($post_title);
-        // $post_img = real_escape_string($post_img);
-        // $post_preview = real_escape_string($post_preview);
-        // $post_content = real_escape_string($post_content);
-        // $post_category = real_escape_string($post_category);
-        // $post_author = real_escape_string($post_author);
-        // $post_date = real_escape_string($post_date);
-
         $query = "INSERT INTO posts (post_title, post_img, post_preview, post_content, post_category, post_author, post_date) VALUES (?,?,?,?,?,?,?)";
         $data = [$post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date]; 
         $this->makeQuery($query, $data);
-        return "yes";
-
     }
 
     protected function deletePost($post_id)
-    {
+    {   $post_id  = (array) $post_id;
         $query = "DELETE FROM posts WHERE post_id = ?";
         $this->makeQuery($query, $post_id);
     }
     
     protected function updatePost($post_id, $post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date)
     {
-        // $post_title = real_escape_string ($post_title);
-        // $post_img = real_escape_string ($post_img);
-        // $post_preview = real_escape_string ($post_preview);
-        // $post_content = real_escape_string ($post_content);
-        // $post_category = real_escape_string ($post_category);
-        // $post_author = real_escape_string ($post_author);
-        // $post_date = real_escape_string ($post_date);
-
-
         $query = "UPDATE posts SET `post_title` = ?, `post_img` = ?, `post_preview` = ?, `post_content` = ?, `post_category` = ?, `post_author` = ?, `post_date` = ? WHERE post_id = ?";
         $data = [$post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date, $post_id]; 
         $this->makeQuery($query, $data);
     }
-    
-
-
-
-
-  
-
-    
-
 }
 

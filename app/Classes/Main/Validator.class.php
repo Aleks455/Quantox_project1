@@ -5,7 +5,8 @@ namespace Classes\Main;
 trait Validator
 {
 
-    protected function validateEmail($email){
+    protected function validateEmail($email)
+    {
 
         $validEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
         $validEmail = filter_var($validEmail, FILTER_VALIDATE_EMAIL);
@@ -19,7 +20,8 @@ trait Validator
 
 
 
-    public function getEmail($email) {
+    public function getEmail($email) 
+    {
         return $email;
     }
 
@@ -29,7 +31,6 @@ trait Validator
     //     }
     // }
 
-  
 
     // public function getPassword(){
 

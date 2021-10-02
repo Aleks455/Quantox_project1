@@ -22,39 +22,17 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         $post_author = $_POST ['post_author'];
         $post_date = $_POST ['post_date'];
 
-        $postController->getPostInfo($post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date);
-
-
+        $postController->setPostInfo($post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date);
     }
-    // if (isset ($_POST ['post_title']) && isset ($_POST ['post_img']) && isset ($_POST ['post_preview']) && isset ($_POST ['post_content']) && isset ($_POST ['post_category']) && isset ($_POST ['post_author']) && isset ($_POST ['post_date'])) {
-    //     // $status = "all is set";
-    //         // $status = '';
-    //      echo    $post_title = $_POST ['post_title'];
-    //       echo  $post_img = $_POST ['post_img'];
-    //       echo   $post_preview = $_POST ['post_preview'];
-    //       echo  $post_content = $_POST ['post_content'];
-    //        echo $post_category = $_POST ['post_category'];
-    //        echo  $post_author = $_POST ['post_author'];
-    //       echo  $post_date = $_POST ['post_date'];
-    }
+}
 
-    //         echo $post_title . $post_img. $post_preview. $post_content. $post_category. $post_author. $post_date;
-    //     $postController->setPost($post_title, $post_img, $post_preview, $post_content, $post_category, $post_author, $post_date);
-    // }
-    // }
-    // else {
-    //     $status = "Please fill in all the fields";
-    // }
-// }
 ?> 
 
 
     
-    <form id="admin_form" class="admin_form" name="admin_form" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+    <form id="create_form" class="post_form" name="create_form" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <?php if (isset($status)): echo $status; endif; ?>
         <ul>
-            <!-- <li><input type="hidden" type="text" name="action" id="add_post" value="add_post"></li> -->
-
             <li>
             <label for="post_title"></label>
             <input type="text" name="post_title" id="post_title" placeholder="News title">
@@ -77,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
             <li>
             <label for="post_category"></label>
-                <select name="post_category" id="post_category" placeholder="News category">
+                <select name="post_category" id="post_category">
                     <option value="politics">Politics</option>
                     <option value="sports">Sports</option>
                     <option value="music">Music</option>          
@@ -95,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             </li>
 
             <li>
-            <input type="submit" name="posalji_proizvod" id="posalji_proizvod">
+            <input type="submit" name="create_news" id="create_news" value="Submit">
             </li>
         </ul>
 
@@ -106,7 +84,4 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     } 
     </script>
     
-
-
-
 <?php include_once 'includes_admin/footer.php'; ?>

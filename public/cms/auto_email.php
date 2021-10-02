@@ -7,6 +7,6 @@ if(!isset ($_SESSION['login_id'])) {
 }
 
 ?> 
-
+- slanje automatskog obavestenja (e-mailom) kada se doda neka nova vest u kategoriju na koju se korisnik prijavio.
 
 <?php include_once 'includes_admin/footer.php'; ?>

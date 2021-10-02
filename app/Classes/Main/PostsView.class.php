@@ -18,7 +18,6 @@ class PostsView extends PostsModel
         }
     }
     public function allPosts(){
-        //samo sve objekte - funkcionise
         return $this->posts;
     }
     public function findPost($id) {
@@ -37,13 +36,12 @@ class PostsView extends PostsModel
     public function showAllPosts($category = "")
     { 
         foreach($this->posts as $post) {
-            if($category === NULL || $post->post_category == $category)
+            if($category === NULL || $post->post_category == $category){
                 $post->onePostView();
-
+            }
         }
     }
     public function categories(){
-        //funkcionise 
             $categories = array();
         foreach($this->posts as $post) {
             $category = $post->post_category;
@@ -85,23 +83,22 @@ class Post
             <div class="post_picture"><img style="border:1px solid black"; src='<?= $this->post_img?>'; alt="news_image"></div>
             <div class="post_content"><?= $this->post_preview?></div>
             <div class="post_date"> Published: <?= $this->post_date?></div>
-            <div>Posto ID is: <?= $this->post_id?></div>
             <a href="detailed_post_view.php?post_id=<?= $this->post_id?>">Look detailed...</a>
             <br>
             <form action="" name="email" method="post" id="subscribe_newsletter">
-            <a href="JavaScript:submit_form();" onclick="stopScroll()">
-           <a href="#submit_button"><input type="submit" id="submit_button" name="submit_subscription" class="submit_subscription" value="Subscribe to post"></a></a>
+                <!-- <a href="JavaScript:submit_form();" onclick="stopScroll()">
+                    <a href="#submit_button"> -->
+                        <input type="submit" id="submit_button" name="submit_subscription" class="submit_subscription" value="Subscribe to post">
+                    <!-- </a>
+                </a> -->
                 <input type="email" name="email_post_subscription" id="email_post_subscription" placeholder="Your email address"> 
-                <input type="hidden" id="action" name="action" value="post_form">          
+                <input type="hidden" id="action" name="action" value="<?= $this->post_id?>">          
             </form>
         </div>
         <script>
             if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
             } 
-            // function stopScroll(){
-            //     document.getElementById("subscribe_newsletter").submit();
-            // }
         </script>
        
         
@@ -121,17 +118,13 @@ class Post
             <!-- <a href="JavaScript:submit_form();" onclick="stopScroll()"> -->
             <input type="submit" name="submit_subscription" class="submit_subscription" value="Subscribe to post">
             <input type="email" name="email_post_subscription" id="email_post_subscription" placeholder="Your email address">
-            <input type="hidden" id="action" name="action" value="post_form">
-
+            <input type="hidden" id="action" name="action" value="<?= $this->post_id?>">
         </form>
     </div>
         <script>
             if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
             }
-            // function stopScroll(){
-            //     document.getElementById("subscribe_newsletter").submit();
-            // }
         </script>
 <?php }
 

@@ -41,7 +41,7 @@ ul {
     display: grid;
 }
 .welcome {
-     margin: auto; 
+    margin: auto; 
     width: 100vw;
     height: 100vh; 
     color: rgb(12, 20, 22);
@@ -78,5 +78,39 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+/* update form  */
+
+.posts_update {
+    border-collapse: collapse;
+    margin: 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.posts_update td,tr{
+    border: 2px solid black;
+}
+
+/* post form  */
+
+.post_form {
+    background-color: rgba(52, 52, 52, 0.89);
+    border-radius: 10px;
+    margin: 4rem auto;
+    text-align: center;
+    color:rgb(239, 238, 238);
+
+}
+.post_form input{
+    width: 30rem;
+}
+.post_form #post_content{
+    height: 20rem;
+    text-align: start;
+
+}
+
+
 
 
