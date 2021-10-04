@@ -6,35 +6,36 @@ session_start();
     if(!isset ($_SESSION['login_id'])) { 
         header('Location: login_admin.php');   
     }
-  
-  
-    //ova stranica treba da ispita admina. Ukoliko to nije admin treba da vrati message na login stranicu sa ispisanom porukom za eror. Ukoliko jeste admin treba da usmeri na index stranicu. 
-
     $all_subscribers = $subscribers->getSubscribers();
-
 ?>
 
-<!-- napraviti table -->
-
-<div class="main_container">
-    <div class="list_container">
-        <ol class='subscribers_list'>
-        <?php   
-            foreach($all_subscribers as $subscriber) {
-                echo  "<li>"; 
-                echo "<ul class='subscriber_list'>";
-                foreach ($subscriber as $key => $value) {
-                    echo  "<li>"; 
-                    echo $key . ': '. $value. "<hr>";
-                    echo  "</li>";
+<div class="list_container">
+    <table class="subscriptions_table">
+        <tr>
+             <th>Num:</th>
+            <th>Subscription ID</th>
+            <th>Category subscription</th>
+            <th>Post subscription ID</th>
+            <th>Subscribers email</th>
+        </tr>
+        <?php              
+        $i = 0;
+        foreach($all_subscribers as $subscriber) {
+            $i = ++$i;
+            echo "<tr>";
+            echo "<td>". $i."</td>";
+            foreach ($subscriber as $key => $value) {
+                if ($value == NULL) {
+                    $value = '/';
                 }
-                echo "</ul>";
-                echo  "</li>";
+                echo  "<td>"; 
+                echo $value;
+                echo  "</td>";
             }
+            echo "</tr>";
+        }
         ?>
-        </ol>
-    </div>
+    </table>
 </div>
-
 
 <?php include_once 'includes_admin/footer.php'; ?>

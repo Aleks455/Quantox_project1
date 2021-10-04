@@ -106,8 +106,8 @@ form {
     color:white;
 }
 .notice {
-    color: red;
-    font-size: 0.9rem;
+    color: rgb(42, 98, 117);
+    font-size: 1.1rem;
     font-style: italic;
     text-align: center;
 }

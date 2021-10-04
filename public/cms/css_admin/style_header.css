@@ -29,7 +29,7 @@ ul {
 
 .admin_categories_container{
     display: grid;
-    grid-template-columns: repeat(5,7rem);
+    grid-template-columns: repeat(4,7rem);
     justify-items: center;
     gap: 3rem;
 }
@@ -64,6 +64,10 @@ ul {
 h1 {
     text-align: center;
 }
+.log {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 /* subscribers */
 
@@ -71,13 +75,14 @@ h1 {
     display: grid;
     margin: auto;
 }
-.subscriber_list {
+.subscriptions_table {
+    border-collapse: collapse;
+}
+.subscriptions_table th, tr, td{
+    border: 1px solid gray;
     padding: 10px;
 }
-.log {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
+
 
 /* update form  */
 

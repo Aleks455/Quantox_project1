@@ -1,29 +1,29 @@
 <?php
-    include_once '../../app/includes/class-autoload.inc.php';
-    require 'includes/header.php';
-    $subscribers = new Classes\Main\SubscribersView();
 
+require 'includes/header.php';
 
+$emailErr = $categoryErr = $status = '';
 
-   $emailErr = $categoryErr = $status = '';
-
-   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-       $_POST['post_id'] = '';
-       if($_POST['action'] == 'category_form') {
-           if (empty($_POST['category']) && empty($_POST['email_category_subscription'])) {
-               $status = "Please provide email address and category";
-           } elseif (isset($_POST['category']) && empty($_POST['email_category_subscription'])) {
-               $emailErr = "Please provide email address";
-           } elseif (isset($_POST['email_category_subscription']) && empty($_POST['category'])) {
-               $categoryErr = "Please provide category";
-           } else {
-               $category = $_POST['category'];
-               $email = htmlspecialchars(stripslashes(trim($_POST['email_category_subscription'])));
-               echo $category . "<br>" . $email;
-               $subscribers->addSubscriberCategory($email, $category);
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    if($_POST['action'] == 'category_form') {
+        if (empty($_POST['category']) && empty($_POST['email_category_subscription'])) {
+            $status = "Please provide email address and category";
+        } elseif (isset($_POST['category']) && empty($_POST['email_category_subscription'])) {
+            $emailErr = "Please provide email address";
+        } elseif (isset($_POST['email_category_subscription']) && empty($_POST['category'])) {
+            $categoryErr = "Please provide category";
+        } else {
+            $email = trim($_POST['email_category_subscription']);
+            if(!$subscribers->validateSubsriber($email)){
+            $emailErr = "Please provide a valid email";
+            } else {
+            $status = "You have successfully subscribed to the Newsletter";
+            $category = $_POST['category'];
+            $subscribers->addSubscriberCategory($email, $category);
             }
         }
     }
+}
 
 ?>
  <div class="subscribe_dropdown">

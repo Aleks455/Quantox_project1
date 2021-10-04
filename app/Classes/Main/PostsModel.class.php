@@ -2,11 +2,6 @@
 
 namespace Classes\Main;
 
-// MODEL CLASS
-//This class is going o be a model of the MVC model.
-// ONLY CLASS THAT INTERACTS WITH DATABASE
-// https://www.youtube.com/watch?v=Fg0CP-ri87U&list=PL0eyrZgxdwhypQiZnYXM7z7-OTkcMgGPh&index=18&ab_channel=DaniKrossing
-// Every single method in this class is gonna be specific query inside the database
 class PostsModel extends Model
 {
     protected function getPosts() 
@@ -14,19 +9,7 @@ class PostsModel extends Model
         $query = "SELECT * from posts ORDER BY post_date DESC";
         $query_result = $this->makeSelectQuery($query);
         return $query_result;
-
-        //don't know where I found this
-        //return $request->execute() ? $request->fetchAll() : false; 
     }
-    
-    // protected function getPost($post_id) 
-    // {
-    //     $query = "SELECT * from posts WHERE post_id = ?";
-    //     $query_result = $this->makeSelectQuery($query, $post_id);
-    //     return $query_result;
-
-    //     //return $request->execute(array($id_article)) ? $request->fetchAll() : false; 
-    // }
 
     protected function getPostbyCategories($category)
     {
@@ -43,7 +26,8 @@ class PostsModel extends Model
     }
 
     protected function deletePost($post_id)
-    {   $post_id  = (array) $post_id;
+    {  
+        $post_id  = (array) $post_id;
         $query = "DELETE FROM posts WHERE post_id = ?";
         $this->makeQuery($query, $post_id);
     }

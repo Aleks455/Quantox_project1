@@ -10,5 +10,4 @@ class AdminModel extends Model
         $query_result = $this->makeSelectQuery($query);
         return $query_result;
     }
-
 }

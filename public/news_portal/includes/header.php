@@ -3,10 +3,9 @@
 include_once '../../app/includes/class-autoload.inc.php';
     $postView = new Classes\Main\PostsView();
     $subscribers = new Classes\Main\SubscribersView();
-    $categories = $postView->categories();
-
     $adminView = new Classes\Main\AdminView();
 
+    $categories = $postView->categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,6 @@ include_once '../../app/includes/class-autoload.inc.php';
 <body>
     <header class="header_div">
         <nav class="navigation_div">
-            <!-- <div class="newsportal_name"><a href="index1.php"> NEWS PORTAL</a></div> -->
             <ul class="news_categories_container">
                <li class="newsportal_name"><a href="index1.php"> NEWS PORTAL</a></li>
                 <div class="news_categories">
@@ -35,11 +33,7 @@ include_once '../../app/includes/class-autoload.inc.php';
                 ?>
                 </div>
                 <li><button class="dropdown_button"><a href="subscribe_category.php">Subscribe</a></button></li>
-
             </ul>
-
-            <!-- <button class="dropdown_button"><a href="subscribe_category.php">Subscribe</a></button> -->
-
         </nav>
     </header>
 <div class='main_post_container'>

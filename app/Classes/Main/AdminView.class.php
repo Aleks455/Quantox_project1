@@ -4,7 +4,7 @@ namespace Classes\Main;
 
 class AdminView extends AdminModel
 {
-    use Validator;
+    use ValidatorTrait;
 
     protected $admin = array();
 
@@ -13,20 +13,6 @@ class AdminView extends AdminModel
         $admin = $this->getAdmin();
         $this->admin = (object)$admin;
     }
-
-    // public function validate_admin_email($email)
-    // {   
-    //     $valid_email = $this->validateEmail($email);
-    //     return $valid_email;
-
-    // //    $result_email_validation = $this->validateEmail($email);
-    // //    if ($result_email_validation == false){
-    // //        return "Email is not valid";
-    // //     } else {
-            
-    // //         return "Email is valid";
-    // //     }
-    // }
 
     public function getAdminId()
     {
@@ -42,10 +28,9 @@ class AdminView extends AdminModel
             $firstadmin =  $admin[$key] = (object)$value;
         }
         if ($firstadmin->admin_email == $email && $firstadmin->admin_password == $password){
-            return true; //vodim ga na stranicu welcome
+            return true;
         } else {
             return false;
         }
     }
-   
 }

@@ -4,37 +4,39 @@ namespace Classes\Main;
 
 class SubscribersView extends SubscribersModel
 {
-    use Validator;
-    // public function validateSubsriber($email)
-    // {
-    //     $result_subscriber_validation = $this->validateEmail($email);
-    //     if ($result_subscriber_validation == false){
-    //         return "Email is not valid";
-    //     } else {
-    //         // $this->addSubscriber($result_subscriber_validation);
-    //         return "Email is valid"; 
-    //     }
-    // }
-
+    use ValidatorTrait;
+    
+    public function validateSubsriber($email)
+    {
+        $result_email_val = $this->checkIfValid($email);
+        return $result_email_val;
+    }
+   
     public function addSubscriberPost($email, $post_id)
     {
-        $email = $email;
-        $email =  $this->validateEmail($email);
-        $post_id = $post_id;
         $this->setSubscriberPost($email, $post_id); 
     } 
 
     public function addSubscriberCategory($email, $category)
     {
-        $email = $email;
-        $category = $category;
-        $email =  $this->validateEmail($email);
         $this->setSubscriberCategory($email, $category);
     }  
       
-    public function getSubscribers() {
-        // radi - nisam castovala kao objekat jos uvek
+    public function getSubscribers() 
+    {
         $subscriptions = $this->getSubsciptions();
         return $subscriptions;
+    }
+
+    public function findCategorySubscribers($category)
+    {
+        $subscribers_category = $this->getCategorySubscibers($category);
+         return $subscribers_category;
+    }
+ 
+    public function findPostSubscribers($post_id)
+    {
+        $subscribers_posts = $this->getPostSubscibers($post_id);
+        return $subscribers_posts;
     }
 }
